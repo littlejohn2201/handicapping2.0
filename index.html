@@ -6,7 +6,10 @@
   <meta name="theme-color" content="#007bff">
   <title>My Mobile App</title>
   
-  <!-- Links the Manifest file -->
+  <!-- THIS LINE IS FOR IPHONE / SAFARI -->
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  
+  <!-- THIS LINE IS FOR MANIFEST / ANDROID -->
   <link rel="manifest" href="./manifest.json">
 </head>
 <body>
@@ -14,12 +17,11 @@
   <h1>My App Works!</h1>
   <p>This app runs offline and can be installed on your home screen.</p>
 
-  <!-- Registers the Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
-          .then((reg) => console.log('Service Worker registered successfully:', reg))
+          .then((reg) => console.log('Service Worker registered:', reg))
           .catch((err) => console.error('Service Worker registration failed:', err));
       });
     }
